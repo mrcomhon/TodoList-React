@@ -1,0 +1,45 @@
+.button {
+    position: relative;
+    border-radius: var(--border-radius);
+    background-color: aqua;
+    color: aquamarine;
+
+    &__add {
+        
+        // @include reset-button;
+        // @include flex-center(true);
+        // @include abs-center;
+        // @include square(1.75rem);
+        // @include hover {
+        //     background-color: var(--color-green);
+        // }
+        
+        top:67%;
+        left: 95%;
+        border-radius: var(--border-radius);
+        background-color: var(--color-accent);
+    }
+
+    &__add:active {
+        background-color: var(--color-accent);
+    }
+
+    &__plus {
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+    width: 70%;
+    height: 0.225rem;
+    background-color: var(--color-dark);
+        }
+
+        &::before {
+            rotate: 270deg;
+        }
+
+        &::after {
+            rotate: 180deg;
+        }
+    }
+}
