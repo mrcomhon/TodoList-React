@@ -1,16 +1,28 @@
-import { openDB } from 'idb';
+import { openDB } from "idb";
 
-const dbPromise = openDB('task-db', 1, {
-    upgrade(db) {
-        db.createObjectStore('tasks', {keyPath: 'id', autoIncrement: true})
-    }
-})
+export interface Task {
+  id?: number;
+  text: string;
+  completed: boolean;
+}
+
+const dbPromise = openDB("task-db", 1, {
+  upgrade(db) {
+    db.createObjectStore("tasks", { keyPath: "id", autoIncrement: true });
+  },
+});
 
 export const taskStorage = {
-    async getAll() {
-        return (await dbPromise).getAll('tasks')
-    },
-    async add(task:object) {
-        return (await dbPromise).add('tasks', task)
-    }
-}
+  async getAll(): Promise<Task[]> {
+    return (await dbPromise).getAll("tasks");
+  },
+  async add(task: Task): Promise<number> {
+    return (await dbPromise).add("tasks", task);
+  },
+  async put(task: Task) {
+    return (await dbPromise).put("tasks", task);
+  },
+  async delete(id: number) {
+    return (await dbPromise).delete("tasks", id);
+  },
+};

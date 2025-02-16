@@ -1,0 +1,32 @@
+:root {
+  --color-green: #b9ff66;
+  --color-green-reverse: #460099;
+  --color-accent: #2dff3e;
+  --color-accent-reverse: #d200c1;
+  --color-gray-alt: #898989;
+  --color-dark: #191a23;
+  --color-light: #ffffff;
+  --color-background-reverse: #d24139;
+
+  --border: 0.063rem solid var(--color-dark);
+  --border-radius: 0.875rem;
+
+  --shadow: 0 0.313rem 0 0 var(--color-dark);
+
+  --container-width: 77.5rem;
+  --container-padding-x: 1.25rem;
+
+  --input-height: 2.25rem;
+  --input-width: 22rem;
+
+  --transition-duration: 0.5s;
+
+  --font-family-base: "Space Grotesk", sans-serif;
+}
+
+.is-dark {
+  background-color: var(--color-dark);
+  border-color: var(--color-light);
+  caret-color: var(--color-light);
+  color: var(--color-light);
+}
