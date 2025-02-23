@@ -6,14 +6,12 @@ export default function ThemeSwitcher() {
 
     const toggleTheme = () => {
         setIsDark(!isDark);
-        {
-            document.body.classList.toggle('dark-theme', !isDark)
-        }
+        document.body.classList.toggle('dark-theme', !isDark);
+    }
         
         return (
             <button onClick={toggleTheme}>
                 {isDark ? 'Светлая тема' : 'Темная тема'}
             </button>
         )
-    }
 }
