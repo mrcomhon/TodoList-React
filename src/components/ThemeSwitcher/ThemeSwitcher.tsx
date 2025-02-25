@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import './ThemeSwitcher.scss'
 
 export default function ThemeSwitcher() {

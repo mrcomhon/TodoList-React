@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTasks } from '../../contexts/TaskContext';
 import { Task } from '../Storage/Storage';
 import './TaskList.scss'
 
 export function TaskList() {
   const { tasks, addTask } = useTasks();
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
 
   const handleAdd = () => {
     if (inputValue.trim()) {
@@ -49,7 +49,7 @@ function TaskItem({ task }: { task: Task }) {
       <span
         style={{ textDecoration: task.completed ? "line-through" : "none" }}
       >
-        {task.text}
+        {task.objective}
       </span>
       <button onClick={() => removeTask(task.id!)}>Удалить</button>
     </>

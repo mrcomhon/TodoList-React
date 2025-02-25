@@ -2,7 +2,7 @@ import { openDB } from "idb";
 
 export interface Task {
   id?: number;
-  text: string;
+  objective: object;
   completed: boolean;
 }
 
@@ -16,7 +16,7 @@ export const taskStorage = {
   async getAll(): Promise<Task[]> {
     return (await dbPromise).getAll("tasks");
   },
-  async add(task: Task): Promise<number> {
+  async add(task: Task) {
     return (await dbPromise).add("tasks", task);
   },
   async put(task: Task) {

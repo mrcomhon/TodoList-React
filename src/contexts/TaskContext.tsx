@@ -3,7 +3,7 @@ import { taskStorage, Task } from "../components/Storage/Storage";
 
 interface TaskContextProps {
   tasks: Task[];
-  addTask: (text: string) => Promise<void>;
+  addTask: (objective: object) => Promise<void>;
   toggleTask: (id: number) => Promise<void>;
   removeTask: (id: number) => Promise<void>;
 }
@@ -22,8 +22,8 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
     })();
   }, []);
 
-  const addTask = async (text: string) => {
-    const newTask: Task = { text, completed: false };
+  const addTask = async (objective: object) => {
+    const newTask: Task = { objective, completed: false };
     const newId = await taskStorage.add(newTask);
     setTasks([...tasks, { ...newTask, id: newId }]);
   };
