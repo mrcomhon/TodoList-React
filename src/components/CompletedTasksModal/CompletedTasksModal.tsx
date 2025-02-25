@@ -7,10 +7,14 @@ export function CompletedTasksModal() {
     
     const completedTasks = tasks.filter((t) => t.completed)
 
+    const handleClick = () => {
+     setIsOpen(!isOpen)
+    }
+
     return (
       <div>
-        <button onClick={() => setIsOpen(true)}>
-          Показать завершенные задачи
+        <button onClick={handleClick}>
+         {isOpen ? 'Закрыть' : 'Показать завершенные задачи'}
         </button>
         {isOpen && (
           <div className="modal-backdrop">
@@ -25,7 +29,7 @@ export function CompletedTasksModal() {
                   ))}
                 </ul>
               )}
-              <button onClick={() => setIsOpen(false)}>Закрыть</button>
+              
             </div>
           </div>
         )}
