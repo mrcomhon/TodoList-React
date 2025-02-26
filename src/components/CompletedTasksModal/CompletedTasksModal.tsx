@@ -25,7 +25,7 @@ export function CompletedTasksModal() {
               ) : (
                 <ul>
                   {completedTasks.map((task) => (
-                    <li key={task.id}>{task.objective}</li>
+                    <li key={task.id}>{task.text}</li>
                   ))}
                 </ul>
               )}
