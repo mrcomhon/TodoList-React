@@ -14,15 +14,21 @@ const dbPromise = openDB("task-db", 1, {
 
 export const taskStorage = {
   async getAll(): Promise<Task[]> {
-    return (await dbPromise).getAll("tasks");
+    const db = await dbPromise;
+    const all = await db.getAll('tasks')
+    return all as Task[]
   },
   async add(task: Task): Promise<number> {
-    return (await dbPromise).add("tasks", task);
+      const db = await dbPromise;
+      const key = await db.add("tasks", task);
+      return key as number;
   },
   async put(task: Task) {
-    return (await dbPromise).put("tasks", task);
+   const db = await dbPromise;
+   return db.put('tasks', task)
   },
   async delete(id: number) {
-    return (await dbPromise).delete("tasks", id);
+  const db = await dbPromise;
+  return db.delete("tasks", id);
   },
 };
