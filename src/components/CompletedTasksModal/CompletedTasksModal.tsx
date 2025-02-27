@@ -3,9 +3,9 @@ import { useTasks } from "../../contexts/TaskContext";
 
 export function CompletedTasksModal() {
     const [isOpen, setIsOpen] = useState(false)
-    const { tasks } = useTasks()
+    const context = useTasks()
     
-    const completedTasks = tasks.filter((t) => t.completed)
+    const completedTasks = context?.tasks.filter((t) => t.completed)
 
     const handleClick = () => {
      setIsOpen(!isOpen)
@@ -20,11 +20,11 @@ export function CompletedTasksModal() {
           <div className="modal-backdrop">
             <div className="modal">
               <h2>Завершенные задачи</h2>
-              {completedTasks.length === 0 ? (
+              {completedTasks?.length === 0 ? (
                 <p>Нет завершенных задач</p>
               ) : (
                 <ul>
-                  {completedTasks.map((task) => (
+                  {completedTasks?.map((task) => (
                     <li key={task.id}>{task.text}</li>
                   ))}
                 </ul>

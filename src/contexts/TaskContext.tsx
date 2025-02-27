@@ -8,7 +8,7 @@ interface TaskContextProps {
   removeTask: (id: number) => Promise<void>;
 }
 
-const TaskContext = createContext<TaskContextProps>({} as TaskContextProps);
+const TaskContext = createContext<TaskContextProps | null>(null);
 
 export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -57,3 +57,4 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 
 export const useTasks = () => useContext(TaskContext);
+
